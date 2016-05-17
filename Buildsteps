@@ -1,0 +1,32 @@
+#Update all currently installed software
+yum update
+#####Testing using the latest stable RPM from NTOP Repo....including steps to connect to repo
+#Install PF_Ring dependencies
+#yum install libgcclibpcap glibc-devel kernel-devel
+#cd /usr/local/src
+#download current PF_Ring from repo
+#git clone https://github.com/23cpt/PF_RING.git
+#cd PF_Ring/kernel
+
+#Create NTOP yum file
+vi /etc/yum.repos.d/ntop.repo
+[ntop]
+name=ntop packages
+baseurl=http://packages.ntop.org/centos-stable/$releasever/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=http://packages.ntop.org/centos-stable/RPM-GPG-KEY-deri
+[ntop-noarch]
+name=ntop packages
+baseurl=http://packages.ntop.org/centos-stable/$releasever/noarch/
+enabled=1
+gpgcheck=1
+gpgkey=http://packages.ntop.org/centos-stable/RPM-GPG-KEY-deri
+
+#Ensure that epel is enabled
+yum clean all
+yum update
+yum install pfring
+
+
+
