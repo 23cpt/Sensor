@@ -7,4 +7,3 @@ Network sensor build for new bare metal sensor.  The build will include:
 - Bro
 - Snort
 - Sercata
-- 
